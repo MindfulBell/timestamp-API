@@ -24,7 +24,7 @@ app.get('/:string', function (req, res) {
         obj.unix = date.getTime()/1000;
         obj.natural = moment(date).format("MMMM Do, YYYY");
     }
-    res.send(obj);
+    res.json(obj);
 });
 
 app.listen(8080, function () {
