@@ -1,7 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var moment = require('moment');
-var hasLetters = require('../util.js')
+var hasLetters = require('../util.js');
+
+router.use(function (req, res, next) {
+  if (req.path.match(/^\/favicon/)) {
+    res.sendStatus(404);
+  }
+  next();
+});
 
 router.use(express.static(__dirname + '/../public'));
 
@@ -12,7 +19,7 @@ router.get('/', function (req, res) {
 router.get('/:string', function (req, res) {
     var param = req.params.string;
     var date = hasLetters(param) ? new Date(param) : new Date(parseInt(param*1000));
-    var obj = { "unix": null, "natural": null }
+    var obj = { "unix": null, "natural": null };
     
     if (date != 'Invalid Date') {
         obj.unix = date.getTime()/1000;
