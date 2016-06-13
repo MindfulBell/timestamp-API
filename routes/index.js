@@ -3,13 +3,6 @@ var router = express.Router();
 var moment = require('moment');
 var hasLetters = require('../util.js');
 
-router.use(function (req, res, next) {
-  if (req.path.match(/^\/favicon/)) {
-    res.sendStatus(404);
-  }
-  next();
-});
-
 router.use(express.static(__dirname + '/../public'));
 
 router.get('/', function (req, res) {
