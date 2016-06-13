@@ -9,10 +9,6 @@ router.get('/', function (req, res) {
   res.sendFile('index.html');
 });
 
-router.get('/favicon.ico', function (req, res){
-    res.sendFile('favicon.ico')
-})
-
 router.get('/:string', function (req, res) {
     var param = req.params.string;
     var date = hasLetters(param) ? new Date(param) : new Date(parseInt(param*1000));
