@@ -22,5 +22,4 @@ router.get('/:string', function (req, res) {
 });
 
 
-
 module.exports = router;
